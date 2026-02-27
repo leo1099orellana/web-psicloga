@@ -11,7 +11,7 @@ import {
 // ==============================================================
 function TarjetaEspecialidad({ icono, titulo, descripcion }) {
   return (
-    // Tarjeta blanca, limpia, con sombra suave que crece al pasar el mouse
+    
     <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-left group cursor-default">
       
       {/* Contenedor del ícono: Fondo tinte salmón, ícono color vino */}
@@ -19,10 +19,9 @@ function TarjetaEspecialidad({ icono, titulo, descripcion }) {
         {icono}
       </div>
       
-      {/* Título: Color vino, peso medio */}
+      
       <h4 className="text-xl text-[#8A2742] mb-4 font-medium">{titulo}</h4>
       
-      {/* Descripción: Gris legible, peso ligero */}
       <p className="text-gray-600 leading-relaxed text-[15px] font-light">
         {descripcion}
       </p>
@@ -153,7 +152,7 @@ export default function App() {
               </div>
               <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
                 <div className="relative group w-full max-w-xs md:max-w-md">
-                  {/* El contenedor de la foto original como una polaroid prolija */}
+                  
                   <div className="bg-white w-full aspect-[4/5] rounded-[3rem] md:rounded-[4rem] p-4 shadow-xl border border-gray-50 flex items-center justify-center relative overflow-hidden">
                     <img src="https://www.psicomch.com.ar/assets/avatar-rzErGR1f.webp" alt="Ilustración Psicóloga" className="w-full h-full object-contain" />
                   </div>
