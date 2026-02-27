@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import { 
-  MessageCircle, HeartPulse, Sparkles, BookOpen, GraduationCap, 
-  Briefcase, Activity, ChevronDown, ChevronUp, Users, 
+import {
+  MessageCircle, HeartPulse, Sparkles, BookOpen, GraduationCap,
+  Briefcase, Activity, ChevronDown, ChevronUp, Users,
   Building2, Cloud, HeartCrack, Sunrise, MapPin, Globe, CheckCircle2, Mail, Menu, X
 } from 'lucide-react';
 
@@ -11,17 +11,16 @@ import {
 // ==============================================================
 function TarjetaEspecialidad({ icono, titulo, descripcion }) {
   return (
-    
+
     <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-left group cursor-default">
-      
-      {/* Contenedor del ícono: Fondo tinte salmón, ícono color vino */}
+
       <div className="bg-[#E3878D]/10 w-16 h-16 rounded-2xl flex items-center justify-center text-[#8A2742] mb-6 group-hover:bg-[#E3878D]/20 transition-colors">
         {icono}
       </div>
-      
-      
+
+
       <h4 className="text-xl text-[#8A2742] mb-4 font-medium">{titulo}</h4>
-      
+
       <p className="text-gray-600 leading-relaxed text-[15px] font-light">
         {descripcion}
       </p>
@@ -36,13 +35,13 @@ function TarjetaTrayectoria({ icono, categoria, titulo, descripcion, alineacion 
 
   return (
     <div className="relative flex items-center w-full mb-12 md:mb-16 last:mb-0 group cursor-default">
-      
+
       <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 bg-[#E3878D] rounded-full border-[4px]
        border-[#FCF6F0] shadow-sm z-10 text-white transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#D1767C]">
         {icono}
       </div>
       <div className={`w-full pl-16 md:pl-0 md:w-1/2 ${esIzquierda ? 'md:pr-16 md:text-right' : 'md:ml-auto md:pl-16 text-left'}`}>
-        
+
         <div className="bg-white border border-gray-100 p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-full inline-block hover:border-[#E3878D]/20">
           <p className="text-[11px] text-[#E3878D] font-bold tracking-[0.2em] uppercase mb-2">
             {categoria}
@@ -64,14 +63,14 @@ function TarjetaTrayectoria({ icono, categoria, titulo, descripcion, alineacion 
 // ==============================================================
 export default function App() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
   const whatsappNumber = "+5491100000000";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola%20Melanie,%20me%20gustar%C3%ADa%20hacer%20una%20consulta.`;
 
   return (
-    
+
     <div className='min-h-screen font-sans text-gray-700 relative pb-0 bg-[#FCF6F0] overflow-x-hidden'>
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');`}
@@ -79,13 +78,15 @@ export default function App() {
 
       {/* PARTE DE ARRIBA PRINCIPAL */}
       <header className='sticky top-0 z-50 bg-[#FCF6F0]/95 backdrop-blur-sm py-4 px-6 md:px-8 lg:px-24 flex justify-between items-center transition-all border-b border-[#8A2742]/5'>
+
+        {/* LOGO Y NOMBRE (Izquierda) */}
         <div className='flex items-center gap-3 cursor-pointer z-50'>
           <div className='w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#E3878D] p-[3px] shadow-sm flex-none flex items-center justify-center'>
             <div className='w-full h-full border-[1.5px] border-white rounded-full flex items-center justify-center'>
               <HeartPulse size={20} className="text-white" strokeWidth={1.5} />
             </div>
           </div>
-          <div className='flex flex-col items-start md:items-end mt-1'>
+          <div className='flex flex-col items-start mt-1'>
             <h1 className='text-[#D1767C] text-xl md:text-2xl leading-none pr-1 tracking-tight' style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 600 }}>
               Lic. Melanie Chaffittelli
             </h1>
@@ -95,36 +96,43 @@ export default function App() {
           </div>
         </div>
 
-        {/* BOTON DEL MENU MOBIL */}
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-[#8A2742] z-50">
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* CONTENEDORES DERECHOS (Botón Menú o Links Escritorio) */}
+        <div className="flex items-center gap-4">
 
-        {/* NAVEGACION DESKTOP */}
-        <nav className='hidden lg:flex gap-8 items-center text-sm font-medium text-[#8A2742]/80'>
-          <a href="#inicio" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Inicio</a>
-          <a href="#recorrido" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Sobre mí</a>
-          <a href="#especialidades" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Abordajes</a>
-          <a href="#modalidad" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Modalidad</a>
-          <a href={whatsappLink} target="_blank" rel="noreferrer" className='cursor-pointer bg-[#D1767C] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition shadow-md'>
-            Contacto
-          </a>
-        </nav>
+          {/* NAVEGACION DESKTOP (Oculta en celular) */}
+          <nav className='hidden lg:flex gap-8 items-center text-sm font-medium text-[#8A2742]/80'>
+            <a href="#inicio" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Inicio</a>
+            <a href="#recorrido" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Sobre mí</a>
+            <a href="#especialidades" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Abordajes</a>
+            <a href="#modalidad" className='hover:text-[#8A2742] border-b-2 border-transparent hover:border-[#8A2742] py-1 transition-all'>Modalidad</a>
+            {/* El botón de contacto ahora vive solo adentro del menú Desktop o Móvil */}
+            <a href={whatsappLink} target="_blank" rel="noreferrer" className='cursor-pointer bg-[#D1767C] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition shadow-md'>
+              Contacto
+            </a>
+          </nav>
 
-        {/* NAVEGACION MOVIL */}
-        <div className={`fixed inset-0 bg-[#FCF6F0] z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 lg:hidden ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-          <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742]">Inicio</a>
-          <a href="#recorrido" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742]">Sobre mí</a>
-          <a href="#especialidades" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742]">Abordajes</a>
-          <a href="#modalidad" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742]">Modalidad</a>
-          <a href={whatsappLink} onClick={() => setIsMenuOpen(false)} className="bg-[#D1767C] text-white px-10 py-4 rounded-full text-xl shadow-lg">Contacto</a>
+          {/* BOTON DEL MENU MOVIL (Visible solo en celular) */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 text-[#8A2742] z-50">
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
+
+        {/* PANTALLA COMPLETA DEL MENU MOVIL */}
+        {/* Le agregamos z-[100] para asegurar que tape todo al abrirse */}
+        <div className={`fixed inset-0 bg-[#FCF6F0] z-[40] flex flex-col items-center justify-center gap-8 transition-transform duration-300 lg:hidden ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+          <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742] hover:text-[#D1767C] transition-colors">Inicio</a>
+          <a href="#recorrido" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742] hover:text-[#D1767C] transition-colors">Sobre mí</a>
+          <a href="#especialidades" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742] hover:text-[#D1767C] transition-colors">Abordajes</a>
+          <a href="#modalidad" onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#8A2742] hover:text-[#D1767C] transition-colors">Modalidad</a>
+          <a href={whatsappLink} onClick={() => setIsMenuOpen(false)} target="_blank" rel="noreferrer" className="bg-[#D1767C] text-white px-10 py-4 rounded-full text-xl shadow-lg mt-4">Contacto</a>
+        </div>
+
       </header>
 
       <main>
         {/* SECCION: 1 INICIO */}
         <div id="inicio" className="w-full pt-12 md:pt-16 pb-20 md:pb-24 relative overflow-hidden">
-          
+
           <div className='max-w-7xl mx-auto px-6 lg:px-12 relative z-10'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]'>
               <div className='order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left'>
@@ -136,7 +144,7 @@ export default function App() {
                   <span className='text-[#D1767C]'>Chaffittelli</span>
                 </h2>
                 <p className='text-lg lg:text-xl text-[#8A2742]/70 mb-10 leading-relaxed max-w-lg font-light'>
-                  Acompaño a Adolescentes y Adultos en procesos atravesados por ansiedad, angustia, duelos y crisis personales, ofreciendo un espacio de escucha, 
+                  Acompaño a Adolescentes y Adultos en procesos atravesados por ansiedad, angustia, duelos y crisis personales, ofreciendo un espacio de escucha,
                   sostén y reflexión para abrir oportunidades de cambio.
                 </p>
                 <div className='flex flex-col sm:flex-row gap-6 w-full lg:w-auto'>
@@ -152,7 +160,7 @@ export default function App() {
               </div>
               <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
                 <div className="relative group w-full max-w-xs md:max-w-md">
-                  
+
                   <div className="bg-white w-full aspect-[4/5] rounded-[3rem] md:rounded-[4rem] p-4 shadow-xl border border-gray-50 flex items-center justify-center relative overflow-hidden">
                     <img src="https://www.psicomch.com.ar/assets/avatar-rzErGR1f.webp" alt="Ilustración Psicóloga" className="w-full h-full object-contain" />
                   </div>
@@ -253,7 +261,7 @@ export default function App() {
               <TarjetaEspecialidad icono={<Sunrise strokeWidth={1.5} size={30} />} titulo="Duelos" descripcion="Acompañamiento en procesos de pérdida, cambios, despedidas y nuevas etapas." />
               <TarjetaEspecialidad icono={<Activity strokeWidth={1.5} size={30} />} titulo="Crisis Vitales" descripcion="Momentos de ruptura o cambio de etapa que requieren re-preguntarse el camino." />
               <TarjetaEspecialidad icono={<Sparkles strokeWidth={1.5} size={30} />} titulo="Autoestima" descripcion="Fortalecer la relación con uno mismo, la confianza personal y el autoconcepto." />
-              
+
               <div className="bg-[#E3878D] p-10 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-default">
                 <h4 className="text-2xl text-white mb-4 font-medium">¿Algo más?</h4>
                 <p className="text-white/90 leading-relaxed text-[15px] font-light mb-8">
@@ -362,7 +370,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-24 mb-16">
             <div className="flex flex-col items-center gap-2 text-center">
               <MapPin size={20} className="text-[#E3878D]" />
-              <p className="text-gray-400 text-sm font-light">Villa Urquiza | Palermo, CABA<br/>Argentina</p>
+              <p className="text-gray-400 text-sm font-light">Villa Urquiza | Palermo, CABA<br />Argentina</p>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <Mail size={20} className="text-[#E3878D]" />
@@ -377,10 +385,10 @@ export default function App() {
       </footer>
 
       {/* BOTÓN WHATSAPP */}
-      <a 
-        href={whatsappLink} 
-        target="_blank" 
-        rel="noreferrer" 
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noreferrer"
         className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#E3878D] text-white p-4 md:p-5 rounded-full shadow-2xl hover:scale-110 hover:bg-[#D1767C] transition-all z-50 flex items-center justify-center cursor-pointer"
       >
         <MessageCircle className="w-7 h-7 md:w-8 md:h-8" />
